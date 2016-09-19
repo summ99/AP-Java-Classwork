@@ -19,6 +19,7 @@ public class OOPExample {
 		Student jordan = new Student("Jordan");
 		jillian.talk();
 		joseph.talk();
+		jordan.talk();
 		}
 
 }
