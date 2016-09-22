@@ -27,6 +27,7 @@ public class MathRandom {
 		int roll =(int)(6 * rand); // [0-5] this is what above code does
 		return roll+1;
 	}
+	}
 //public static int rollUnfairDie()
 //{
 //		double rand = Math.random();
