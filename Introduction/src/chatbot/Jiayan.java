@@ -1,17 +1,18 @@
-package dataTypes;
+package chatbot;
 
 import java.util.Scanner;
 
-public class StringPractice {
+public class Jiayan {
 	static Scanner input; 
 	static String user;
 	static int lineCount;
 	static boolean inLoop;
 	static String response;
+	static Topic school;
+	
 	public static void main(String[] args) {
 		createAScanner();
 		lineCount = 0;
-		demonstrateStringMethods();
 		print("Try inputting a string");
 		promptName();
 		talkForever();
@@ -33,6 +34,11 @@ public class StringPractice {
 			{
 				print("I'm so happy you're good");
 				
+			}
+			else if (response.indexOf("school")>=0)
+			{
+				inLoop = false;//exit this loop
+				school.talk();
 			}
 			else 
 			{
@@ -85,25 +91,10 @@ public class StringPractice {
 	}
 	public static void createAScanner() {
 		input = new Scanner(System.in);
+		school = new School();
 		
 	}
-	public static void demonstrateStringMethods()
-	{
-		//String text = new String("Hello World");
-				String text1 = "Hello World";
-				String text2 = "Hello ";
-				String text3 = "World";
-				if (text1.equals(text2+text3))
-				{
-					System.out.println("equal");
-				}
-				System.out.println(text1);
-				System.out.println(text2+text3);
-				String word1 = "Ardvark";
-				String word2 = "Zyzzyva";
-				if(word1.compareTo(word2)  < 0)
-				{
-					System.out.println("Word1 is before word2");
-				}
-	}
+
 }
+
+
