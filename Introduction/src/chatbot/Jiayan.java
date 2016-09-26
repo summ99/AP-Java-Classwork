@@ -11,9 +11,7 @@ public class Jiayan {
 	static Topic school;
 	
 	public static void main(String[] args) {
-		createAScanner();
-		lineCount = 0;
-		print("Try inputting a string");
+		createTopics();
 		promptName();
 		talkForever();
 		}
@@ -30,7 +28,7 @@ public class Jiayan {
 		{
 			print("Greetings!" + user + ", how are you?");
 			response = getInput();
-			if(response.indexOf("good")>= 0)
+			if(findKeyword(response,"good", 0) )
 			{
 				print("I'm so happy you're good");
 				
@@ -45,6 +43,36 @@ public class Jiayan {
 				print("I do not understand you.");
 			}
 		}
+	}
+	public static boolean findKeyword(String searchString, String key, int startIndex) {
+		// TODO Auto-generated method stub
+		String phrase = searchString.trim();
+		phrase = phrase.toLowerCase();
+		key = key.toLowerCase();
+		int psn = phrase.indexOf(key);
+		while(psn >= 0){
+			String before = " ";
+			String after = " ";
+			
+			if(psn +key.length() <phrase.length())
+			{
+				after = phrase.substring(psn+key.length(), psn+key.length()+1).toLowerCase();
+			}
+			
+			if(psn>0)
+			{
+				before = phrase.substring(psn-1, psn).toLowerCase();
+			}
+			
+			if(before.compareTo("a") < 0 && after.compareTo("a") <0)
+			{
+				return true;
+			}
+			
+			psn = phrase.indexOf(key, psn+1);
+		}
+		
+		return false;
 	}
 	private static void promptInput() {
 		String userInput = input.nextLine();
@@ -89,7 +117,7 @@ public class Jiayan {
 		System.out.println(printString);
 		
 	}
-	public static void createAScanner() {
+	public static void createTopics() {
 		input = new Scanner(System.in);
 		school = new School();
 		
