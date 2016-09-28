@@ -31,5 +31,17 @@ public class JiayanLike implements Topic{
 	}
 	
 	}
-
+	public boolean isTriggered(String userInput) {
+		//String[] triggers = {"school", "class", "teachers",};
+		//for loop could be used to iterate thru words
+		if(Jiayan.findKeyword(userInput, "school", 0)>= 0)
+		{
+			return true;
+		}
+		if(Jiayan.findKeyword(userInput, "class", 0)>= 0)
+		{
+			return true;
+		}
+		return false;
+	}
 }
