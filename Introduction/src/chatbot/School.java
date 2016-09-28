@@ -22,5 +22,5 @@ public class School implements Topic {
 			Jiayan.print("That is my favorite part about school too!");
 		}
 	}
-
+ 
 }
