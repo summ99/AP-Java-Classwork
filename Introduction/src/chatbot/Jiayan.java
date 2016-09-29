@@ -10,6 +10,7 @@ public class Jiayan {
 	static String response;
 	static Topic school;
 	static Topic like;
+	static Topic hello;
 	
 	public static void main(String[] args) {
 		createTopics();
@@ -44,6 +45,11 @@ public class Jiayan {
 			{
 				inLoop = false;
 				like.talk();      
+			}
+			else if (findKeyword(response, "hello", 0)>=0)
+			{
+				inLoop = false;
+				hello.talk();      
 			}
 			else 
 			{
@@ -168,6 +174,7 @@ public class Jiayan {
 		input = new Scanner(System.in);
 		school = new School();
 		like = new JiayanLike();
+		hello = new JiayanHello();
 		
 	}
 
