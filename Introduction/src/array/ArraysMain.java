@@ -5,9 +5,32 @@ public class ArraysMain {
 	public static void main(String[] args) {
 		//this is how u time how quickly a computer processes
 		long startTime = System.currentTimeMillis();
-		arrayIntroMethod();
+		String [] someStrings = new String[100];
+		populateArray(someStrings);
+		changeString(someStrings[99]);
+		printArray(someStrings);
 		long endTime = System.currentTimeMillis();
 		System.out.println("Completed method in " + (endTime-startTime)+ " miliseconds");
+		
+	}
+	private static void changeString(String s) {
+		//pass by value = 
+		s = "this string has been changed";
+		
+	}
+	private static void printArray(String[] someStrings) {
+	
+		for(String s:someStrings)
+		{
+			System.out.println(s);
+		}
+	}
+	private static void populateArray(String[] someStrings) {
+		
+		for(int index=0; index < someStrings.length; index++)
+				{
+					someStrings[index]="value"+(index+1);
+				}
 	}
 	public static void arrayIntroMethod()
 	{
@@ -18,7 +41,12 @@ public class ArraysMain {
 				//these are different
 				String[] strings = {"","",""};
 				String[] strings2 = new String[3];
-				for(String s:strings)
+				//instantiating the array with values
+				for(int index=0; index < strings2.length; index++)
+				{
+					strings2[index]="value"+(index+1);
+				}
+				for(String s:strings2)
 				{
 					System.out.println(s);
 				}
@@ -36,6 +64,7 @@ public class ArraysMain {
 				//when to use FOREACH loop("for each boolean in booleans")
 				//-always goes in order
 				//-does not keep track of index but is easier to type
+				//puts a handle on the array
 				for (boolean b:booleans)
 				{
 					System.out.println("" +b);
