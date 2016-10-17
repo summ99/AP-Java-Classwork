@@ -4,11 +4,14 @@ public class DemoProblems {
 	
 static int [] fiftyNums = new int [50];
 static int [] randomInts = new int [30];
+static int [] diceArr = new int [10];
 	public static void main(String[] args) {
-		fillFiftyArray(fiftyNums);
-		printFiftyArray(fiftyNums);
-		fillRanIntArr(randomInts);
-		printRanIntArr(randomInts);
+		//fillFiftyArray(fiftyNums);
+		//printFiftyArray(fiftyNums);
+	//	fillRanIntArr(randomInts);
+	//	printRanIntArr(randomInts);
+		fillDiceArray(diceArr);
+		printDiceArray(diceArr);
 		
 	}
 	private static void printFiftyArray(int [] fiftyNums) 
@@ -40,8 +43,28 @@ static int [] randomInts = new int [30];
 			System.out.println(i);
 		}
 	}
-
-	
+	private static void fillDiceArray(int []diceArr)
+	{
+		for(int index = 0; index<diceArr.length; index++)
+		{
+			int ranInt1 = (int)(6*Math.random())+1;
+			int ranInt2 = (int)(6*Math.random())+1;
+			int totalNum = ranInt1+ranInt2;
+			diceArr[index] = totalNum;
+		}
+	}
+	private static void printDiceArray(int [] diceArr)
+	{
+		for(int i:diceArr)
+		{
+			System.out.println(i);
+		}
+	}
+	private static void fillDeckOfCards()
+	{
+		String suits[] = [];
+		String ranks[] = [];
+	}
 }
 
 
