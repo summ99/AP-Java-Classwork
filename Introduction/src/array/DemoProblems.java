@@ -4,7 +4,8 @@ public class DemoProblems {
 	
 static int [] fiftyNums = new int [50];
 static int [] randomInts = new int [30];
-static int [] diceArr = new int [10];
+static int [] diceArr = new int [10000];
+static int [] results = new int [11];
 	public static void main(String[] args) {
 		//fillFiftyArray(fiftyNums);
 		//printFiftyArray(fiftyNums);
@@ -52,18 +53,23 @@ static int [] diceArr = new int [10];
 			int totalNum = ranInt1+ranInt2;
 			diceArr[index] = totalNum;
 		}
-	}
-	private static void printDiceArray(int [] diceArr)
-	{
-		for(int i:diceArr)
+		for(int d = 0; d<diceArr.length; d++)
 		{
-			System.out.println(i);
+			results[diceArr[d]-2]++;
+		}
+	}
+
+	private static void printDiceArray(int [] arr)
+	{
+		for(int i=0; i<arr.length;i++)
+		{
+			System.out.println(i+1+"is rolled" +((double)arr[i]/diceArr.length+100)+" % of the time.");
 		}
 	}
 	private static void fillDeckOfCards()
 	{
-		String suits[] = [];
-		String ranks[] = [];
+		String suits[] = ["Spades","Clubs","Diamonds","Hearts"];
+		String ranks[] = ["","","","","","","","",""];
 	}
 }
 
