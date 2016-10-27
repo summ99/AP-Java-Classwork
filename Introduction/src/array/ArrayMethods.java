@@ -7,7 +7,7 @@ public class ArrayMethods {
 		int [] array2 = {7,9,3,4,6,9,11,8,1};
 		//int [] intArray  = {3,9,6,11,14,16};
 		//int [] subArray = {1,98};
-		longestSharedSequence(array1,array2);
+		testPrime();
 		//printArr(subArray);
 		//contains(intArray,subArray);
 		
@@ -24,6 +24,39 @@ public class ArrayMethods {
 		//}
 
 	}
+	private static void testPrime(int numToTest) {
+		// TODO Auto-generated method stub
+		int lastToCheck = (int)(Math.sqrt(numToTest));
+		boolean [] nums = new boolean [numToTest];
+		for(int i =0; i<numToTest;i++)
+		{
+			nums[i]=true;
+		}
+		nums[0] = false;
+		nums[1] = false;
+		int incr = 2;
+		boolean first = true;
+		for(int test =2; test<= numToTest; test = test+incr)
+		{
+			
+			if(first)
+			{
+				nums[test] = false;
+			}
+			else
+			{
+				first = false;
+			}
+		}
+	
+	for(int i =0; i<nums.length;i++)
+	{
+		if(nums[i]= true)
+		{
+			System.out.println(i + " is prime");
+		}
+	}
+}
 	private static void printArr(int [] array)
 	{
 		for(int i:array)
@@ -107,27 +140,34 @@ public class ArrayMethods {
 		}
 		return false;
 	}
-
-	public static int longestSharedSequence(int[] array1, int[] array2){
-        /**This method counts the longest unbroken, shared sequence in TWO arrays.
-         * The sequence does NOT have to be a consecutive sequence
-         * It does NOT matter where the sequence begins, the arrays might not be the same length
-         * 
-         * Examples:
-         * longestSequence({9,6,3,4,3,8,9}, {9,6,3,4,3,6,7}) returns '5', since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long 
-         * longestSequence({0,9,6,3,4,3,8,9}, {1,2,9,6,3,4,3,6,7}) returns '5', 
-         *          since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long, it doesn't matter that the sequence begins at different indices 
-         * longestSequence({9,6,1,4,3,6,7,9}, {9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
-         * */ 
-        int numsShared =0;
-        for(int i =0; i<array1.length;i++)
+	public static int getIndex(int[] arrayToSearch, int key){
+	    /**
+	     * this method take an unsorted int array (arrayToSearch) and returns an 
+	     * int corresponding to the index of a key, if it is in the array
+	     * if the key is not in the array, this method returns -1
+	     * */
+	        for(int index=0; index<arrayToSearch.length; index++)
+	        {
+	            if(arrayToSearch[index] == key)
+	            {
+	                return index;
+	            }
+	        }  
+	        return -1;
+	    }
+	/*public static int [] popArrRandomly(int [] arr)
+	{
+		int [] randArr = new int [arr.length-1];
+		for(int r =0; r<randArr.length; r++)
 		{
-				if()
-				{
-					numsShared++;
-				}	
-        	
-        System.out.println(numsShared);
-        return numsShared;
-    }
+			int toAdd = arr[(int)Math.random()*arr.length];
+			while (getIndex(randArr,toAdd)>-1)
+			{
+				toAdd = arr[(int)Math.random()*arr.length];
+			}
+		randArr[r] = toAdd;}
+		return randArr;
+		
+	}*/
+	
 }
