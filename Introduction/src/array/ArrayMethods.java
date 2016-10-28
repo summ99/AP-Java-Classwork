@@ -7,7 +7,7 @@ public class ArrayMethods {
 		int [] array2 = {7,9,3,4,6,9,11,8,1};
 		//int [] intArray  = {3,9,6,11,14,16};
 		//int [] subArray = {1,98};
-		testPrime();
+		testPrime(50);
 		//printArr(subArray);
 		//contains(intArray,subArray);
 		
@@ -34,24 +34,26 @@ public class ArrayMethods {
 		}
 		nums[0] = false;
 		nums[1] = false;
-		int incr = 2;
-		boolean first = true;
-		for(int test =2; test<= numToTest; test = test+incr)
+		for(int prime = 2; prime<=lastToCheck; prime++)
 		{
+			//when checking 50 nums, test 2-7
+			if(nums[prime])
+			{
+				//only checks numbers that r prime n those that havent been crossed off
+			//wont check 4 and 6 bc already crossed off by 2
+				System.out.println(prime + " is prime. Crossing off: ");
 			
-			if(first)
-			{
-				nums[test] = false;
-			}
-			else
-			{
-				first = false;
+				for(int test =prime+prime; test<numToTest; test= test+prime)
+				{
+					System.out.print(test +", ");
+						nums[test] = false;
+	
+				}	
 			}
 		}
-	
 	for(int i =0; i<nums.length;i++)
 	{
-		if(nums[i]= true)
+		if(nums[i])
 		{
 			System.out.println(i + " is prime");
 		}
