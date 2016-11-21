@@ -11,8 +11,8 @@ public class Practice {
 	 
 	 
 	public static void main(String[] args) {
-	 arr2d = new String[5][4];
-	 pic = new String[5][4];
+	 arr2d = new String[5][5];
+	 pic = new String[5][5];
 		for(int row =0; row<arr2d.length;row++)
 		{
 			 for(int col =0; col<arr2d[0].length; col++)
@@ -21,17 +21,22 @@ public class Practice {
 			 }
 		}
 		//start pos
-		i = 2;
 		j = 1;
+		i = 2;
 		in = new Scanner(System.in);
 		startExploring();
 	}
+	
 	private static void startExploring() {
+		int cols = 5;
+		int rows = 5;
 		while(true)
 		{
-			System.out.println("You are in room " + arr2d[i][j]);
-			pic[i][j] = " X ";
-			printPic(pic);
+			
+			System.out.println("You are in room " + j + "," + i);
+			//pic[i][j] = " X ";
+			//printPic(pic);
+			drawGrid(cols, rows, j, i);
 			System.out.println("What do you want to do?");
 			String input = in.nextLine();
 			while(!isValid(input))
@@ -39,7 +44,8 @@ public class Practice {
 				System.out.println("Please enter w, a, s, or d.");
 				input = in.nextLine();
 			}
-			interpretInput(input);
+			
+			interpretInput(input,rows,cols,i,j);
 		}
 		
 	}
@@ -56,36 +62,22 @@ public class Practice {
 		}
 		return false;
 	}
-	private static void interpretInput(String input) {
-		int iOrig = i;
-		int jOrig = j;
-		if(input.equals("w")&&i>0)
+	private static void interpretInput(String input, int rows, int cols,int i, int j) {
+		if (input.equals("s") && j + 1 < cols)
+		{
+			j++;
+		} 
+		else if (input.equals("w") && j > 0) 
+		{
+			j++;
+		} 
+		else if (input.equals("a") && i > 0) 
 		{
 			i--;
-			
-		}
-		else 
-			if(input.equals("a")&&j>0)
-			{
-				j--;
-				
-			}
-			else
-				if(input.equals("s")&& i+1<arr2d.length)
-				{
-					i++;
-					
-				}
-				else
-					if(input.equals("d")&& j+1<arr2d[0].length)
-					{
-						j++;
-						
-					}
-	
-		if(iOrig == i && jOrig ==j)
+		} 
+		else if (input.equals("d") && i + 1 < rows) 
 		{
-			System.out.println("You are on the edge of the universe, you cannot move in that direction");
+			i++;
 		}
 	}
 	
@@ -232,21 +224,28 @@ public class Practice {
 			System.out.println();
 		}
 	}
-
-/* hhhhhhwwwwww
-	public static void drawMap(int r, int c)
-	{
-		String [][] map = new String [r][c];
-		for( r =0; r<map.length; r++)
-		{
-			for(c =0; c<map[0].length; c++)
-			{
-				map[0][col]="_";
-				map[map.length-1][c] = "_"
+	public static void drawGrid(int rows, int cols, int r, int c) {
+		for (int i = 0; i < rows; i++) {
+			System.out.print("____");
+		}
+		System.out.println();
+		for (int j = 0; j < cols; j++) {
+			for (int i = 3; i > 0; i--) {
+				for (int k = 0; k != rows; k++) {
+					if (i == 1) {
+						System.out.print("|___");
+					} else {
+						if (i == 2 && j == r && k == c) {
+							System.out.print("| X ");
+						} else {
+							System.out.print("|   ");
+						}
+					}
+				}
+				System.out.println("|");
 			}
 		}
-		for()
-		printPic(map);
 	}
-	*/
+	
+	
 }
