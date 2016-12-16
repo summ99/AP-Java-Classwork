@@ -2,7 +2,7 @@ package array;
 
 import java.util.Arrays;
 
-public class Print2dArrayWarmUp {
+public class TwoDArrayTestReview {
 	private static boolean[][] arr2d;
 	//TestReview
 	public static void main(String[] args) {
