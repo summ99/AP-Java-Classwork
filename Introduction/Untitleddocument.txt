@@ -1,0 +1,43 @@
+﻿Screen class:
+nextRound()
+{
+acceptingInput = false;                
+roundNum ++;
+progress.setRound(roundNumber);
+sequence.add(randomMove());
+progress.setSequenceLength(sequence.size());
+changeText("Simon's Turn");
+label.setText(" ");
+playSequence();
+changeText("Your Turn");
+acceptingInput = true;
+label.setText(" ");
+sequenceIndex = 0;
+
+
+}
+playSequence auto created helper method:
+{
+        ButtonInterfaceJiayan b = null;
+                for(MoveInterfaceJiayan i: sequence){
+                        if(b!=null)
+“                        {
+b.dim();
+}
+b = i.getButton();
+b.highlight();
+try {                        
+Thread.sleep((int)(2000*(1.0/roundNum)));
+}        
+catch (InterruptedException e) {
+        e.printStackTrace();
+        }
+}
+b.dim();
+
+
+}
+ProgressInterface class:
+void setRound(int roundNumber);
+void setSequenceLength(int size);
+Create a ButtonJiayan, ProgressJiayan, and MoveJiayan class to implement ButtonInterfaceJiayan, ProgressInterfaceJiayan and MoveInterfaceJiayan,
